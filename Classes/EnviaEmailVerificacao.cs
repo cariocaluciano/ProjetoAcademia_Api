@@ -47,9 +47,7 @@ public class EnviaEmailVerificacao
 
 
 		}
-		
-		 Console.WriteLine("Email de confirmação enviado com sucesso.");
-		
+			
 		return tokenConfirmacao;
 	}
 }

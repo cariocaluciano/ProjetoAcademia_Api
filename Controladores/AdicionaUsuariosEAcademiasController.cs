@@ -31,7 +31,6 @@ public class AdicionaUsuariosEAcademiasController : Controller
 	public async Task<IActionResult> PostAcademia([FromBody] TbCadAcademia tbCadAcademia)
 	{
 		var Token = await _enviaEmailVerificacao.EnviaEmail(tbCadAcademia);
-		Console.WriteLine(Token);
 
 		var retornoApi = _crudAcademia.PostAcademia(tbCadAcademia , Token );
 		var resposta = new { Mensagem = $"{retornoApi}" };
@@ -40,12 +39,13 @@ public class AdicionaUsuariosEAcademiasController : Controller
 
 
 	[HttpPost("confirmartoken")]
-	public string RetornoTokenVerificacaoEmail(string Token)
+	public IActionResult RetornoTokenVerificacaoEmail([FromBody]TbToken Token)
 	{
-		var retornoApi = _crudAcademia.VerificaTokenEAtualizaEmailValidado(Token); 
-		var resposta = retornoApi;
+		var retornoApi = _crudAcademia.VerificaTokenEAtualizaEmailValidado(Token.Token);
+		var resposta = new { Mensagem = $"{retornoApi}" };
 
-		return resposta;
+		Console.WriteLine(retornoApi);
+		return Ok(resposta);
 	}
 
 
