@@ -11,7 +11,19 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<CrudAcademia>();
 builder.Services.AddScoped<CrudAlunos>();
+builder.Services.AddScoped<VerificaLoginAcademia>();
+builder.Services.AddScoped<EnviaEmailVerificacao>();
 
+builder.Services.AddCors(Opts =>
+{
+	Opts.AddPolicy("AllowSpecificOrigin",
+				builder =>
+				{
+					builder.WithOrigins("http://127.0.0.1:5500")
+					  .AllowAnyHeader()
+					  .AllowAnyMethod();
+				});
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -20,6 +32,8 @@ if (app.Environment.IsDevelopment())
 	app.UseSwagger();
 	app.UseSwaggerUI();
 }
+
+app.UseCors("AllowSpecificOrigin");
 
 app.UseHttpsRedirection();
 

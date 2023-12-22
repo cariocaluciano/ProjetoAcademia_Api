@@ -6,38 +6,40 @@ public static class Db
 {
 	private static string connectionString = "Data Source=DESKTOP-UUNA063;Initial Catalog=DBAcademia;User ID=sa;Password=33460068;";
 
-	public static string ExecutarStoredProcedure(string nomeStoredProcedure, SqlParameter[] parametros)
+    public static string ExecutarStoredProcedure(string nomeStoredProcedure, SqlParameter[] parametros)
 	{
 		using (SqlConnection connection = new SqlConnection(connectionString))
 		{
 			try
 			{
+				var retornoProcedure = "";
+
 				connection.Open();
 
 				using (SqlCommand command = new SqlCommand(nomeStoredProcedure, connection))
 				{
-					command.CommandType = CommandType.StoredProcedure;
+                    command.CommandType = CommandType.StoredProcedure;
 
 					if (parametros != null)
 					{
 						command.Parameters.AddRange(parametros);
 					}
+					using (SqlDataReader reader = command.ExecuteReader())
+					{
+						while (reader.Read())
+						{
+							retornoProcedure = reader["Retorno"].ToString();
 
+                        }
+					}
 					command.ExecuteNonQuery();
-
-					//using (SqlDataReader reader = command.ExecuteReader())
-					//{ 
-					// while (reader.Read()) 
-					//	{
-					//		retornoProcedure = reader["Retorno"].ToString();
-					//	}
-					//}
 				}
-				return "Sucesso";
+				return retornoProcedure.ToString();
 			}
 			catch (Exception ex)
 			{
-				return "Erro: " + ex.Message.ToString();
+                Console.WriteLine(	"Erro no BD" + ex.Message);
+                return "Erro: " + ex.Message.ToString() ;
 			}
 		}
 	}
