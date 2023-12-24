@@ -7,8 +7,8 @@ public class VerificaLoginAcademia
 {
 	public string? RetornoProcedure { get; set; }
 
-	private string ExecutaComandosNoBanco(string nomeStoredProcedure, SqlParameter[] parametros)
-	{
+	private string ExecutaComandosNoBanco(string nomeStoredProcedure, SqlParameter[] parametros)  
+	{ 
 		RetornoProcedure = Db.ExecutarStoredProcedure(nomeStoredProcedure, parametros);
 		return RetornoProcedure;
 	}
@@ -22,9 +22,7 @@ public class VerificaLoginAcademia
 			  new SqlParameter("@Email", tbLoginAcademia.Email),
 			  new SqlParameter("@Senha",tbLoginAcademia.Senha )
 			  };
-            Console.WriteLine(tbLoginAcademia.Email);
             RetornoProcedure = ExecutaComandosNoBanco("PcLogaUsuarioAcademia", parametros);
-			Console.WriteLine(RetornoProcedure);
 			return RetornoProcedure;
            
         }
