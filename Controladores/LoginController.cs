@@ -19,7 +19,7 @@ public LoginController(VerificaLoginAcademia verificaLoginAcademia)
 	public IActionResult LogaAcademia([FromBody] TbLoginAcademia tbLoginAcademia)
 	{
 
-		var retornoApi = _verificaLoginAcademia.Postlogin(tbLoginAcademia);
+        var retornoApi = _verificaLoginAcademia.Postlogin(tbLoginAcademia);
 
 		var resposta = new { Mensagem = $"{retornoApi}" };
 

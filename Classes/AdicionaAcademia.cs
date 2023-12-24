@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 
 namespace ProjetoAcademia_Api.Classes;
 
-public class CrudAcademia
+public class AdicionaAcademia
 {
     public string? RetornoProcedure { get; set;}
 
@@ -33,7 +33,6 @@ public class CrudAcademia
 			  };
 
 			RetornoProcedure = ExecutaComandosNoBanco("PcPostAcademia", parametros);
-			Console.WriteLine(token, "NOCRUD");
 			return RetornoProcedure;
 		}
 		catch (Exception ex) 

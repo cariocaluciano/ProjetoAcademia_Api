@@ -44,8 +44,6 @@ public class EnviaEmailVerificacao
 			smtp.EnableSsl = true;
 
 			smtp.Send(Mail);
-
-
 		}
 			
 		return tokenConfirmacao;

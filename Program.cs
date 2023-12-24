@@ -9,7 +9,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<CrudAcademia>();
+builder.Services.AddScoped<AdicionaAcademia>();
 builder.Services.AddScoped<CrudAlunos>();
 builder.Services.AddScoped<VerificaLoginAcademia>();
 builder.Services.AddScoped<EnviaEmailVerificacao>();

@@ -32,7 +32,7 @@ public static class Db
 
                         }
 					}
-					command.ExecuteNonQuery();
+					//command.ExecuteNonQuery();
 				}
 				return retornoProcedure.ToString();
 			}

@@ -22,10 +22,12 @@ public class VerificaLoginAcademia
 			  new SqlParameter("@Email", tbLoginAcademia.Email),
 			  new SqlParameter("@Senha",tbLoginAcademia.Senha )
 			  };
-
-			RetornoProcedure = ExecutaComandosNoBanco("PcLogaUsuarioAcademia", parametros);
-            return RetornoProcedure;
-		}
+            Console.WriteLine(tbLoginAcademia.Email);
+            RetornoProcedure = ExecutaComandosNoBanco("PcLogaUsuarioAcademia", parametros);
+			Console.WriteLine(RetornoProcedure);
+			return RetornoProcedure;
+           
+        }
 		catch (Exception ex)
 		{
 			RetornoProcedure = ex.Message.ToString();
