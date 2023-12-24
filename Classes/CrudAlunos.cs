@@ -105,4 +105,24 @@ public class CrudAlunos
 		}
 
 	}
+
+	public string DeletaAluno(int Id)
+	{
+		try
+		{
+			SqlParameter[] parametros = new SqlParameter[]
+			  {
+			  new SqlParameter("@IdAluno" , Id)
+			  };
+
+			RetornoProcedure = ExecutaComandosNoBanco("PcDeletaAluno", parametros);
+			return RetornoProcedure;
+		}
+		catch (Exception ex)
+		{
+			RetornoProcedure = ex.Message.ToString();
+			return RetornoProcedure;
+		}
+
+	}
 }

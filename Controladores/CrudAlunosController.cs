@@ -45,4 +45,13 @@ public class CrudAlunosController : Controller
 		var resposta = new { Mensagem = $"{retornoApi}" };
 		return Ok(resposta);
 	}
+
+	[HttpDelete("ExibirAlunos")]
+	public IActionResult DeletaAluno(int IdAluno)
+	{
+		var retornoApi = _crudAlunos.DeletaAluno(IdAluno);
+		var resposta = new { Mensagem = $"{retornoApi}" };
+		return Ok(resposta);
+
+	}
 }
