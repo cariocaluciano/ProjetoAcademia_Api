@@ -13,6 +13,8 @@ builder.Services.AddScoped<AdicionaAcademia>();
 builder.Services.AddScoped<CrudAlunos>();
 builder.Services.AddScoped<VerificaLoginAcademia>();
 builder.Services.AddScoped<EnviaEmailVerificacao>();
+builder.Services.AddScoped<CrudDadosAcademia>();
+
 
 builder.Services.AddCors(Opts =>
 {
