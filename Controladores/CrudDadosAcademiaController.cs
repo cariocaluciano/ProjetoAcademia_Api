@@ -13,9 +13,9 @@ public class CrudDadosAcademiaController : Controller
 	}
 
 	[HttpGet("GetAcademia")]
-	public IActionResult GetDadosAcademia(int IdAcademia)
+	public IActionResult GetDadosAcademia(string Token)
 	{
-		var retornoApi = _crudDadosAcademia.GetDadosAcademia(IdAcademia);
+		var retornoApi = _crudDadosAcademia.GetDadosAcademia(Token);
 		var resposta = new { Mensagem = $"{retornoApi}" };
 
 		return Ok(resposta);

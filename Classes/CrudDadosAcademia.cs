@@ -12,13 +12,13 @@ public class CrudDadosAcademia
 		return RetornoProcedure;
 	}
 
-	public string? GetDadosAcademia(int IdAcademia)
+	public string? GetDadosAcademia(string Token)
 	{
 		try
 		{
 			SqlParameter[] parametros = new SqlParameter[]
 			  {
-			  new SqlParameter("@IdAcademia",IdAcademia)
+			  new SqlParameter("@Token",Token)
 			  };
 
 			RetornoProcedure = ExecutaComandosNoBanco("PcGetAcademia", parametros);

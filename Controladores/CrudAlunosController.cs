@@ -46,7 +46,7 @@ public class CrudAlunosController : Controller
 		return Ok(resposta);
 	}
 
-	[HttpDelete("ExibirAlunos")]
+	[HttpDelete("DeleteAluno")]
 	public IActionResult DeletaAluno(int IdAluno)
 	{
 		var retornoApi = _crudAlunos.DeletaAluno(IdAluno);
