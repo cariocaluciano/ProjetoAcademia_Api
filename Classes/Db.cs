@@ -4,8 +4,9 @@ using System.Data.SqlClient;
 
 public static class Db
 {
+	//"Data Source=projacademia-server.database.windows.net;Initial Catalog=projacademia-database;User ID=projacademia-server-admin;Password=33460068@bC;" Conexão com  AZURE
 	//"Data Source=DESKTOP-UUNA063;Initial Catalog=DBAcademia;User ID=sa;Password=33460068;"
-	private static string connectionString = "Data Source=projacademia-server.database.windows.net;Initial Catalog=projacademia-database;User ID=projacademia-server-admin;Password=33460068@bC;";
+	private static string connectionString = "Data Source=DESKTOP-UUNA063;Initial Catalog=DBAcademia;User ID=sa;Password=33460068;";
 
     public static string ExecutarStoredProcedure(string nomeStoredProcedure, SqlParameter[] parametros)
 	{
