@@ -23,7 +23,7 @@ public class CrudAlunosController : Controller
 
 	[HttpPut("AtualizarDados")]
 	public IActionResult AtualizaDadosAluno(int IdAluno, [FromBody]TbCadAluno cadAluno)
-	{
+	{ 
 		var retornoApi = _crudAlunos.UpdateAluno(cadAluno, IdAluno);
 		var resposta = new { Mensagem = $"{retornoApi}" };
 		
