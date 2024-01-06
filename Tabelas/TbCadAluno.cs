@@ -2,6 +2,7 @@
 
 public class TbCadAluno
 {
+    public int IdAluno { get; set; }
     public int IdAcademia { get; set; }
     public string NomeCompleto { get; set; }
     public string Cpf { get; set; }

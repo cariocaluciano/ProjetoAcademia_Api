@@ -39,13 +39,13 @@ public class CrudAlunos
 
 	}
 
-	public string UpdateAluno(TbCadAluno tbCad, int Id = 0)
+	public string UpdateAluno(TbCadAluno tbCad)
 	{
 		try
 		{
 			SqlParameter[] parametros = new SqlParameter[]
 			  {
-			  new SqlParameter("@IdAluno" , Id),
+			  new SqlParameter("@IdAluno" , tbCad.IdAluno),
 			  new SqlParameter("@IdAcademia",tbCad.IdAcademia ),
 			  new SqlParameter("@NomeCompleto", tbCad.NomeCompleto),
 			  new SqlParameter("@Cpf", tbCad.Cpf),

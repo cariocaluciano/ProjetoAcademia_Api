@@ -10,7 +10,7 @@ public class VerificaLoginAcademia
 	private string ExecutaComandosNoBanco(string nomeStoredProcedure, SqlParameter[] parametros)
 	{
 		RetornoProcedure = Db.ExecutarStoredProcedure(nomeStoredProcedure, parametros);
-		return RetornoProcedure;
+        return RetornoProcedure;
 	}
 	private string GeraToken()
 	{
@@ -48,8 +48,7 @@ public class VerificaLoginAcademia
 			  new SqlParameter("@Senha",tbLoginAcademia.Senha )
 			  };
 			RetornoProcedure = ExecutaComandosNoBanco("PcLogaUsuarioAcademia", parametros);
-
-			if (RetornoProcedure.Contains("Sucesso"))
+            if (RetornoProcedure.Contains("Sucesso"))
 			{
 				string separador = "Código:";
 				int indiceSeparador = RetornoProcedure.IndexOf(separador);
