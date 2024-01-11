@@ -46,6 +46,16 @@ public class CrudAlunosController : Controller
 		return Ok(resposta);
 	}
 
+
+	[HttpGet("ExibirAlunosPesquisa")]
+	public IActionResult GetAlunosPesquisa(int IdAcademia, string NomePesquisado)
+	{
+		var retornoApi = _crudAlunos.GetAlunosPesquisa(IdAcademia, NomePesquisado);
+		var resposta = new { Mensagem = $"{retornoApi}" };
+		return Ok(resposta);
+	}
+
+
 	[HttpDelete("DeleteAluno")]
 	public IActionResult DeletaAluno(int IdAluno)
 	{

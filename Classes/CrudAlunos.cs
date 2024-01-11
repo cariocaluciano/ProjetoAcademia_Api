@@ -1,4 +1,5 @@
-﻿using ProjetoAcademia_Api.Tabelas;
+﻿using Microsoft.AspNetCore.Mvc;
+using ProjetoAcademia_Api.Tabelas;
 using System.Data.SqlClient;
 using System.Globalization;
 
@@ -105,6 +106,30 @@ public class CrudAlunos
 		}
 
 	}
+
+
+	public string GetAlunosPesquisa(int Id, string AlunoPesquisa)
+	{
+		try
+		{
+			SqlParameter[] parametros = new SqlParameter[]
+			  {
+			  new SqlParameter("@IdAcademia" , Id),
+			  new SqlParameter("@NomeAluno", AlunoPesquisa)
+			  };
+
+			RetornoProcedure = ExecutaComandosNoBanco("GetAlunosPesquisa", parametros);
+			return RetornoProcedure;
+		}
+		catch (Exception ex)
+		{
+			RetornoProcedure = ex.Message.ToString();
+			return RetornoProcedure;
+		}
+
+	}
+
+
 
 	public string DeletaAluno(int Id)
 	{
