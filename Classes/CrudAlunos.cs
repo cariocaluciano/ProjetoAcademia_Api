@@ -108,14 +108,15 @@ public class CrudAlunos
 	}
 
 
-	public string GetAlunosPesquisa(int Id, string AlunoPesquisa)
+	public string GetAlunosPesquisa(int Id, string AlunoPesquisa, int TipoPesquisa)
 	{
 		try
 		{
 			SqlParameter[] parametros = new SqlParameter[]
 			  {
 			  new SqlParameter("@IdAcademia" , Id),
-			  new SqlParameter("@NomeAluno", AlunoPesquisa)
+			  new SqlParameter("@NomeAluno", AlunoPesquisa),
+			  new SqlParameter("@TipoPesquisa", TipoPesquisa)
 			  };
 
 			RetornoProcedure = ExecutaComandosNoBanco("GetAlunosPesquisa", parametros);

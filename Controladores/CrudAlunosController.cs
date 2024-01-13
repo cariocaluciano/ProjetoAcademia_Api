@@ -48,9 +48,9 @@ public class CrudAlunosController : Controller
 
 
 	[HttpGet("ExibirAlunosPesquisa")]
-	public IActionResult GetAlunosPesquisa(int IdAcademia, string NomePesquisado)
+	public IActionResult GetAlunosPesquisa(int IdAcademia, string NomePesquisado, int TipoPesquisa)
 	{
-		var retornoApi = _crudAlunos.GetAlunosPesquisa(IdAcademia, NomePesquisado);
+		var retornoApi = _crudAlunos.GetAlunosPesquisa(IdAcademia, NomePesquisado , TipoPesquisa);
 		var resposta = new { Mensagem = $"{retornoApi}" };
 		return Ok(resposta);
 	}
