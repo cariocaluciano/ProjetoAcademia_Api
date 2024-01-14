@@ -22,7 +22,6 @@ public LoginController(VerificaLoginAcademia verificaLoginAcademia)
         var retornoApi = _verificaLoginAcademia.Postlogin(tbLoginAcademia);
 
 		var resposta = new { Mensagem = $"{retornoApi}" };
-        Console.WriteLine(	resposta);
 
         return Ok(resposta);
 	}

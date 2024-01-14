@@ -14,6 +14,7 @@ builder.Services.AddScoped<CrudAlunos>();
 builder.Services.AddScoped<VerificaLoginAcademia>();
 builder.Services.AddScoped<EnviaEmailVerificacao>();
 builder.Services.AddScoped<CrudDadosAcademia>();
+builder.Services.AddScoped<FazLogOf>();
 
 
 builder.Services.AddCors(Opts =>
