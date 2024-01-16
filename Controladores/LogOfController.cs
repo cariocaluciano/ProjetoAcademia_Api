@@ -17,12 +17,10 @@ public class LogOfController : Controller
 	[HttpPost]
 	public IActionResult DeslogaAcademia([FromBody] TbLogOfAcademia LogOf)
 	{
-        Console.WriteLine(LogOf.Token.ToString());
-
+     
         var retornoApi = _deslogaUsuario.PostLogOf(LogOf);
 		var resposta = new { Mensagem = $"{retornoApi}" };
-
-		return Ok(resposta);
+        return Ok(resposta);
 
 	}
 }
